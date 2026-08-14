@@ -1,0 +1,19 @@
+{
+  "name": "dsh-theme-wallpaper",
+  "version": "1.0.0",
+  "description": "Wallpaper background theme for DeepSeek Harness — injects a background image plus semi-transparent panel overrides (light + dark).",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}
