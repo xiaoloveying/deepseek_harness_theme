@@ -27,45 +27,40 @@ A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deep
 
 ### Installation
 
-> 💡 **Easiest — double-click install (no terminal):** after downloading the folder, double-click `install.command` on macOS or `install.bat` on Windows. It installs and registers everything for you; then just restart Harness. (To uninstall, double-click `uninstall.command` / `uninstall.bat`.)
+**Option A — One-click install (✅ recommended):**
 
-**Step 1 — Download the plugin.** Either clone it:
+1. Download this repo — **Code → Download ZIP** and unzip, or:
 
-```bash
-git clone https://github.com/xiaoloveying/deepseek_harness_theme \
-  ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
-```
+   ```bash
+   git clone https://github.com/xiaoloveying/deepseek_harness_theme
+   ```
 
-or download the ZIP (**Code → Download ZIP**), unzip it, copy the folder into `~/.dsh/profiles/node_modules/`, and rename it to `dsh-theme-wallpaper`.
+2. Double-click `install.command` (macOS) or `install.bat` (Windows) — it installs and registers everything for you, no terminal needed. (Terminal users: run `./install.sh` instead.)
+
+3. Restart Harness and hard-refresh:
+
+   ```bash
+   npx @deepseek-ai/dsh web
+   ```
+
+   Then `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
+
+**Option B — Manual (⚠️ not recommended, more steps):**
+
+1. Copy the downloaded folder into `~/.dsh/profiles/node_modules/` and rename it to `dsh-theme-wallpaper`.
+2. Edit `~/.dsh/profiles/web/cordis.patch.yml` (change `web` to your profile name if different) and add:
+
+   ```yaml
+   - insert:
+       - id: theme-wallpaper
+         name: dsh-theme-wallpaper
+   ```
+
+   If the file already has content, append the block above (keep the YAML indentation).
+
+3. Restart `npx @deepseek-ai/dsh web`.
 
 > If your Harness home is not `~/.dsh` (you set `DSH_HOME`), use your actual path instead.
-
-**Step 2 — Register the plugin.** Edit `~/.dsh/profiles/web/cordis.patch.yml` (change `web` to your profile name if different):
-
-```yaml
-- insert:
-    - id: theme-wallpaper
-      name: dsh-theme-wallpaper
-```
-
-If the file already has content, append the block above to the end (keep the YAML indentation).
-
-**Step 3 — Restart** and hard-refresh:
-
-```bash
-npx @deepseek-ai/dsh web
-```
-
-Then press `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
-
-### One-command installer
-
-```bash
-./install.sh           # default profile: web
-./install.sh myprofile # use a different profile
-```
-
-The script copies the plugin and writes `cordis.patch.yml` for you; then just restart `npx @deepseek-ai/dsh web`.
 
 ### Enable / Disable
 
@@ -142,45 +137,40 @@ This removes both the plugin folder and its `cordis.patch.yml` entry for you. Th
 
 ### 安装
 
-> 💡 **最简单 —— 双击安装（不用终端）**：下载文件夹后，Mac 上双击 `install.command`，Windows 上双击 `install.bat`，会自动完成安装和注册；然后重启 Harness 即可。（卸载就双击 `uninstall.command` / `uninstall.bat`。）
+**方式 A —— 一键安装（✅ 推荐）：**
 
-**第 1 步 · 下载插件**（任选其一）：
+1. 下载本仓库 —— **Code → Download ZIP** 后解压，或者：
 
-```bash
-git clone https://github.com/xiaoloveying/deepseek_harness_theme \
-  ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
-```
+   ```bash
+   git clone https://github.com/xiaoloveying/deepseek_harness_theme
+   ```
 
-或下载 ZIP（**Code → Download ZIP**）解压后，把文件夹复制到 `~/.dsh/profiles/node_modules/`，并**改名为 `dsh-theme-wallpaper`**。
+2. 双击 `install.command`（Mac）或 `install.bat`（Windows）—— 自动完成安装和注册，无需终端。（终端用户：运行 `./install.sh` 即可。）
+
+3. 重启 Harness 并强制刷新：
+
+   ```bash
+   npx @deepseek-ai/dsh web
+   ```
+
+   然后按 `Cmd + Shift + R`（Windows / Linux 用 `Ctrl + Shift + R`）。
+
+**方式 B —— 手动（⚠️ 不推荐，步骤多）：**
+
+1. 把下载下来的文件夹复制到 `~/.dsh/profiles/node_modules/`，并改名为 `dsh-theme-wallpaper`。
+2. 编辑 `~/.dsh/profiles/web/cordis.patch.yml`（用别的 profile 就改成对应名字），加入：
+
+   ```yaml
+   - insert:
+       - id: theme-wallpaper
+         name: dsh-theme-wallpaper
+   ```
+
+   如果文件已有内容，就在末尾追加上面这段（保持 YAML 缩进一致）。
+
+3. 重启 `npx @deepseek-ai/dsh web`。
 
 > 如果 Harness 用户目录不是 `~/.dsh`（设置了 `DSH_HOME`），请换成实际路径。
-
-**第 2 步 · 注册插件**。编辑 `~/.dsh/profiles/web/cordis.patch.yml`（用别的 profile 就改成对应名字）：
-
-```yaml
-- insert:
-    - id: theme-wallpaper
-      name: dsh-theme-wallpaper
-```
-
-如果文件已有内容，就在**末尾追加**上面这段（保持 YAML 缩进一致）。
-
-**第 3 步 · 重启**并强制刷新：
-
-```bash
-npx @deepseek-ai/dsh web
-```
-
-然后按 `Cmd + Shift + R`（Windows / Linux 用 `Ctrl + Shift + R`）。
-
-### 一键安装
-
-```bash
-./install.sh           # 默认 profile 是 web
-./install.sh myprofile # 指定别的 profile
-```
-
-脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `npx @deepseek-ai/dsh web`。
 
 ### 如何开关
 
