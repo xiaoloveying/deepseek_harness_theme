@@ -25,6 +25,8 @@ A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deep
 
 ### Installation
 
+> 💡 **Easiest — double-click install (no terminal):** after downloading the folder, double-click `install.command` on macOS or `install.bat` on Windows. It installs and registers everything for you; then just restart Harness. (To uninstall, double-click `uninstall.command` / `uninstall.bat`.)
+
 **Step 1 — Download the plugin.** Either clone it:
 
 ```bash
@@ -107,8 +109,10 @@ This removes both the plugin folder and its `cordis.patch.yml` entry for you. Th
 | `package.json` | Plugin manifest declaring `dsh.client` |
 | `lib/index.js` | Host-side entry (no-op) |
 | `lib/client.js` | Client entry — injects background + styles |
-| `install.sh` | One-command installer |
-| `uninstall.sh` | One-command uninstaller |
+| `install.command` / `install.bat` | Double-click installer (macOS / Windows) |
+| `uninstall.command` / `uninstall.bat` | Double-click uninstaller (macOS / Windows) |
+| `install.sh` / `uninstall.sh` | Terminal installer / uninstaller |
+| `install.cjs` / `uninstall.cjs` | Core logic used by the scripts above |
 
 ### Troubleshooting
 
@@ -135,6 +139,8 @@ This removes both the plugin folder and its `cordis.patch.yml` entry for you. Th
 - 无需其他依赖（插件自包含，背景图已内嵌）
 
 ### 安装
+
+> 💡 **最简单 —— 双击安装（不用终端）**：下载文件夹后，Mac 上双击 `install.command`，Windows 上双击 `install.bat`，会自动完成安装和注册；然后重启 Harness 即可。（卸载就双击 `uninstall.command` / `uninstall.bat`。）
 
 **第 1 步 · 下载插件**（任选其一）：
 
@@ -218,8 +224,10 @@ npx @deepseek-ai/dsh web
 | `package.json` | 插件清单，声明 `dsh.client` |
 | `lib/index.js` | 主机侧入口（无副作用） |
 | `lib/client.js` | 客户端入口，注入背景与样式 |
-| `install.sh` | 一键安装脚本 |
-| `uninstall.sh` | 一键卸载脚本 |
+| `install.command` / `install.bat` | 双击安装（macOS / Windows） |
+| `uninstall.command` / `uninstall.bat` | 双击卸载（macOS / Windows） |
+| `install.sh` / `uninstall.sh` | 终端安装 / 卸载脚本 |
+| `install.cjs` / `uninstall.cjs` | 上面脚本共用的核心逻辑 |
 
 ### 常见问题
 
