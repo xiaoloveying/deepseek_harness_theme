@@ -16,7 +16,7 @@ A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deep
 
 - Full-page wallpaper background (cover, centered, fixed)
 - Semi-transparent panels so the wallpaper shows through
-- Works with both light and dark themes
+- **Forces dark mode** — this is a dark theme, so it switches Harness to dark automatically
 - Pure client plugin — no host changes, safe to uninstall
 
 ### Requirements
@@ -126,7 +126,7 @@ This removes both the plugin folder and its `cordis.patch.yml` entry for you. Th
 
 - 整页壁纸背景（居中、铺满、固定）
 - 半透明面板，壁纸透出来
-- 浅色 / 深色主题都适配
+- **强制深色模式** —— 这是一款深色主题，安装后会自动把 Harness 切成深色
 - 纯客户端插件，不碰主机数据，安全可卸载
 
 ### 前置条件
