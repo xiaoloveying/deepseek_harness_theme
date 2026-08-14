@@ -80,7 +80,18 @@ To turn it back **on**, remove the `disabled: true` line (or delete the whole bl
 
 ### Uninstall
 
-1. Remove the `- insert: ...` block you added in `cordis.patch.yml`.
+**Easiest — run the one-command uninstaller:**
+
+```bash
+./uninstall.sh           # default profile: web
+./uninstall.sh myprofile # use a different profile
+```
+
+This removes both the plugin folder and its `cordis.patch.yml` entry for you. Then restart `npx @deepseek-ai/dsh web`.
+
+**Or remove it manually:**
+
+1. Remove the `- insert: ...` block you added in `cordis.patch.yml` (leave `[]` if the file becomes empty).
 2. Delete the plugin folder:
 
    ```bash
@@ -97,6 +108,7 @@ To turn it back **on**, remove the `disabled: true` line (or delete the whole bl
 | `lib/index.js` | Host-side entry (no-op) |
 | `lib/client.js` | Client entry — injects background + styles |
 | `install.sh` | One-command installer |
+| `uninstall.sh` | One-command uninstaller |
 
 ### Troubleshooting
 
@@ -179,7 +191,18 @@ npx @deepseek-ai/dsh web
 
 ### 卸载
 
-1. 删掉 `cordis.patch.yml` 里加的那段 `- insert: ...`。
+**最简单 —— 运行一键卸载脚本：**
+
+```bash
+./uninstall.sh           # 默认 profile 是 web
+./uninstall.sh myprofile # 指定别的 profile
+```
+
+它会自动删除插件目录、并从 `cordis.patch.yml` 里移除主题记录。然后重启 `npx @deepseek-ai/dsh web`。
+
+**或手动删除：**
+
+1. 删掉 `cordis.patch.yml` 里加的那段 `- insert: ...`（如果删完只剩注释，记得留一个 `[]`）。
 2. 删除插件目录：
 
    ```bash
@@ -196,6 +219,7 @@ npx @deepseek-ai/dsh web
 | `lib/index.js` | 主机侧入口（无副作用） |
 | `lib/client.js` | 客户端入口，注入背景与样式 |
 | `install.sh` | 一键安装脚本 |
+| `uninstall.sh` | 一键卸载脚本 |
 
 ### 常见问题
 
