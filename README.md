@@ -19,7 +19,8 @@ A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deep
 
 ### Requirements
 
-- DeepSeek Harness installed and runnable via `dsh web`
+- DeepSeek Harness installed and runnable via `npx @deepseek-ai/dsh web`
+> If you installed Harness globally (`npm i -g @deepseek-ai/dsh`), run `dsh web` instead.
 - Nothing else — the plugin is self-contained (the background image is embedded)
 
 ### Installation
@@ -48,7 +49,7 @@ If the file already has content, append the block above to the end (keep the YAM
 **Step 3 — Restart** and hard-refresh:
 
 ```bash
-dsh web
+npx @deepseek-ai/dsh web
 ```
 
 Then press `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
@@ -60,7 +61,7 @@ Then press `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
 ./install.sh myprofile # use a different profile
 ```
 
-The script copies the plugin and writes `cordis.patch.yml` for you; then just restart `dsh web`.
+The script copies the plugin and writes `cordis.patch.yml` for you; then just restart `npx @deepseek-ai/dsh web`.
 
 ### Uninstall
 
@@ -71,7 +72,7 @@ The script copies the plugin and writes `cordis.patch.yml` for you; then just re
    rm -rf ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
    ```
 
-3. Restart `dsh web`.
+3. Restart `npx @deepseek-ai/dsh web`.
 
 ### Files
 
@@ -102,7 +103,8 @@ The script copies the plugin and writes `cordis.patch.yml` for you; then just re
 
 ### 前置条件
 
-- 已装好 DeepSeek Harness，并能用 `dsh web` 启动
+- 已装好 DeepSeek Harness，并能用 `npx @deepseek-ai/dsh web` 启动
+> 如果你是用 `npm i -g @deepseek-ai/dsh` 全局安装的，改用 `dsh web` 即可。
 - 无需其他依赖（插件自包含，背景图已内嵌）
 
 ### 安装
@@ -131,7 +133,7 @@ git clone https://github.com/xiaoloveying/deepseek_harness_theme \
 **第 3 步 · 重启**并强制刷新：
 
 ```bash
-dsh web
+npx @deepseek-ai/dsh web
 ```
 
 然后按 `Cmd + Shift + R`（Windows / Linux 用 `Ctrl + Shift + R`）。
@@ -143,7 +145,7 @@ dsh web
 ./install.sh myprofile # 指定别的 profile
 ```
 
-脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `dsh web`。
+脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `npx @deepseek-ai/dsh web`。
 
 ### 卸载
 
@@ -154,7 +156,7 @@ dsh web
    rm -rf ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
    ```
 
-3. 重启 `dsh web`。
+3. 重启 `npx @deepseek-ai/dsh web`。
 
 ### 文件说明
 

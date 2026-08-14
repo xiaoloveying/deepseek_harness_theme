@@ -56,5 +56,5 @@ fi
 
 echo
 echo "✅ 安装完成 / Done！重启生效 / restart to apply："
-echo "   dsh web"
+echo "   npx @deepseek-ai/dsh web"
 echo "   然后强制刷新页面 / then hard-refresh: Cmd+Shift+R"
