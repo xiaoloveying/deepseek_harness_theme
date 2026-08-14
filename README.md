@@ -4,6 +4,8 @@
 
 A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) a wallpaper background and semi-transparent panels.
 
+![预览效果 · Preview](assets/preview.png)
+
 <a id="english"></a>
 
 ## English
