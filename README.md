@@ -63,6 +63,21 @@ Then press `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
 
 The script copies the plugin and writes `cordis.patch.yml` for you; then just restart `npx @deepseek-ai/dsh web`.
 
+### Enable / Disable
+
+After restarting, the theme appears under **Settings → Plugins** in the Harness UI (read-only — there is no toggle button there).
+
+To turn the theme **off** without uninstalling, add `disabled: true` to its row in `~/.dsh/profiles/web/cordis.patch.yml`:
+
+```yaml
+- insert:
+    - id: theme-wallpaper
+      name: dsh-theme-wallpaper
+      disabled: true
+```
+
+To turn it back **on**, remove the `disabled: true` line (or delete the whole block). Restart `npx @deepseek-ai/dsh web` after each change.
+
 ### Uninstall
 
 1. Remove the `- insert: ...` block you added in `cordis.patch.yml`.
@@ -146,6 +161,21 @@ npx @deepseek-ai/dsh web
 ```
 
 脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `npx @deepseek-ai/dsh web`。
+
+### 如何开关
+
+重启后，这个主题会出现在 Harness 界面的「**设置 → 插件**」里（那里是只读列表，没有开关按钮）。
+
+想**关闭**主题但又不卸载，就在 `~/.dsh/profiles/web/cordis.patch.yml` 里给这一行加上 `disabled: true`：
+
+```yaml
+- insert:
+    - id: theme-wallpaper
+      name: dsh-theme-wallpaper
+      disabled: true
+```
+
+想**重新开启**，就把 `disabled: true` 删掉（或删掉整段）。每次改完都要重启 `npx @deepseek-ai/dsh web`。
 
 ### 卸载
 
