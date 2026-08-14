@@ -73,29 +73,6 @@ The script copies the plugin and writes `cordis.patch.yml` for you; then just re
 
 3. Restart `dsh web`.
 
-### Customization
-
-All styles live in `lib/client.js`.
-
-**Change the wallpaper** — replace the base64 in `var BG = "data:image/jpeg;base64,..."` with your own image:
-
-```bash
-base64 -i your-image.jpg | tr -d '\n'
-# append the output after "data:image/jpeg;base64,"
-```
-
-**Tune panel opacity** — edit the last number (0–1, higher = more solid) of these variables:
-
-| Variable | Controls |
-|---|---|
-| `--dsw-alias-bg-base` | Main-area mask |
-| `--dsw-specific-sidebar-fill` | Sidebar |
-| `--dsw-alias-button-elevated-fill` | New-session button |
-| `--dsw-specific-input-major` | Input / composer box |
-| `--dsw-alias-bg-layer-1/2/3` | Panels, dialogs, etc. |
-
-Restart `dsh web` to apply.
-
 ### Files
 
 | File | Description |
@@ -178,29 +155,6 @@ dsh web
    ```
 
 3. 重启 `dsh web`。
-
-### 自定义
-
-所有样式都在 `lib/client.js`。
-
-**换背景图** —— 把 `var BG = "data:image/jpeg;base64,..."` 里的 base64 换成自己的图：
-
-```bash
-base64 -i 你的图片.jpg | tr -d '\n'
-# 把输出拼到 "data:image/jpeg;base64," 后面
-```
-
-**调面板透明度** —— 改下面这些变量的最后一个数字（0~1，越大越实）：
-
-| 变量 | 作用 |
-|---|---|
-| `--dsw-alias-bg-base` | 主要区域遮罩 |
-| `--dsw-specific-sidebar-fill` | 侧边栏 |
-| `--dsw-alias-button-elevated-fill` | 「新会话」按钮 |
-| `--dsw-specific-input-major` | 输入框 |
-| `--dsw-alias-bg-layer-1/2/3` | 卡片、弹窗等层级 |
-
-改完重启 `dsh web` 生效。
 
 ### 文件说明
 
