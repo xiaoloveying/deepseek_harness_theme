@@ -1,64 +1,39 @@
-# DeepSeek Harness 壁纸主题插件 · Wallpaper Theme Plugin
+# DeepSeek Harness 壁纸主题 · Wallpaper Theme Plugin
 
-给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 换上一张壁纸背景 + 半透明面板的主题插件。
-A client-side theme plugin that gives DeepSeek Harness a wallpaper background and semi-transparent panels.
+> **[English](#english) · [中文](#chinese)**
 
-| | 中文 | English |
-|---|---|---|
-| 效果 | 壁纸铺满整页，面板半透明，壁纸透出来 | Full-page wallpaper with translucent panels |
-| 主题 | 浅色 / 深色都适配 | Both light & dark themes supported |
-| 实现 | 纯客户端插件，不碰主机数据，安全可卸载 | Pure client plugin — no host changes, safe to remove |
+A client-side theme plugin that gives [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) a wallpaper background and semi-transparent panels.
 
----
+<a id="english"></a>
 
-## 效果 / Features
+## English
 
-- 整页壁纸背景（居中、铺满、固定不随滚动）Full-page wallpaper background (cover, centered, fixed)
-- 主要区域半透明遮罩，文字清晰 Semi-transparent mask on the main area for text readability
-- 左侧侧边栏半透明 Semi-transparent sidebar
-- 浅色 / 深色两套主题自动切换 Auto-switches between light and dark themes
+### What it does
 
----
+- Full-page wallpaper background (cover, centered, fixed)
+- Semi-transparent panels so the wallpaper shows through
+- Works with both light and dark themes
+- Pure client plugin — no host changes, safe to uninstall
 
-## 前置条件 / Requirements
+### Requirements
 
-- 已经装好并会启动 DeepSeek Harness（`dsh web`）
-- Already have DeepSeek Harness installed and running via `dsh web`
-- 不需要 Node 之外的任何东西（插件自包含，背景图已内嵌）
-- Nothing extra required — the plugin is self-contained (the background image is embedded)
+- DeepSeek Harness installed and runnable via `dsh web`
+- Nothing else — the plugin is self-contained (the background image is embedded)
 
----
+### Installation
 
-## 安装 / Installation
-
-### 第 1 步 · 下载插件 / Step 1 · Download the plugin
-
-任选一种方式 / Pick one:
-
-**方式 A · 用 git 克隆（推荐）/ Method A · Clone with git (recommended):**
+**Step 1 — Download the plugin.** Either clone it:
 
 ```bash
 git clone https://github.com/xiaoloveying/deepseek_harness_theme \
   ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
 ```
 
-**方式 B · 下载 ZIP / Method B · Download ZIP:**
+or download the ZIP (**Code → Download ZIP**), unzip it, copy the folder into `~/.dsh/profiles/node_modules/`, and rename it to `dsh-theme-wallpaper`.
 
-1. 点击本仓库右上角 **Code → Download ZIP**，解压。
-   Download the ZIP (Code → Download ZIP) and unzip it.
-2. 把解压出来的整个文件夹复制到 `~/.dsh/profiles/node_modules/` 下，并**改名为 `dsh-theme-wallpaper`**。
-   Copy the unzipped folder into `~/.dsh/profiles/node_modules/` and rename it to `dsh-theme-wallpaper`.
-
-> 如果你的 Harness 用户目录不是 `~/.dsh`（设置了 `DSH_HOME`），把上面的路径换成你的实际路径。
 > If your Harness home is not `~/.dsh` (you set `DSH_HOME`), use your actual path instead.
 
-### 第 2 步 · 注册插件 / Step 2 · Register the plugin
-
-编辑 `~/.dsh/profiles/web/cordis.patch.yml`（如果你用的是别的 profile，改成对应名字）。
-Edit `~/.dsh/profiles/web/cordis.patch.yml` (change `web` to your profile name if different).
-
-如果文件内容还是空的 `[]`，改成：
-If the file is still the empty `[]`, make it:
+**Step 2 — Register the plugin.** Edit `~/.dsh/profiles/web/cordis.patch.yml` (change `web` to your profile name if different):
 
 ```yaml
 - insert:
@@ -66,96 +41,178 @@ If the file is still the empty `[]`, make it:
       name: dsh-theme-wallpaper
 ```
 
-如果文件里已经有内容，就在**末尾追加**上面这段（注意保持 YAML 缩进一致）。
-If the file already has content, append the block above to the end (keep YAML indentation consistent).
+If the file already has content, append the block above to the end (keep the YAML indentation).
 
-### 第 3 步 · 重启 / Step 3 · Restart
+**Step 3 — Restart** and hard-refresh:
 
 ```bash
 dsh web
 ```
 
-然后打开页面，**强制刷新**：`Cmd + Shift + R`（Windows / Linux 用 `Ctrl + Shift + R`）。
-Then hard-refresh the page: `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
+Then press `Cmd + Shift + R` (`Ctrl + Shift + R` on Windows/Linux).
 
----
-
-## 一键安装脚本 / One-command installer
-
-如果你已经把插件下载到了本地，也可以直接运行：
-If you've already downloaded the plugin locally, you can also run:
+### One-command installer
 
 ```bash
-./install.sh          # 默认 profile 是 web / defaults to profile "web"
-./install.sh myprofile  # 指定别的 profile / use a different profile
+./install.sh           # default profile: web
+./install.sh myprofile # use a different profile
 ```
 
-脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `dsh web`。
 The script copies the plugin and writes `cordis.patch.yml` for you; then just restart `dsh web`.
 
----
+### Uninstall
 
-## 卸载 / Uninstall
+1. Remove the `- insert: ...` block you added in `cordis.patch.yml`.
+2. Delete the plugin folder:
 
-1. 删掉 `~/.dsh/profiles/web/cordis.patch.yml` 里加的那段 `- insert: ...`。
-   Remove the `- insert: ...` block you added in `cordis.patch.yml`.
-2. 删除插件目录：
    ```bash
    rm -rf ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
    ```
-3. 重启 `dsh web`。Restart `dsh web`.
+
+3. Restart `dsh web`.
+
+### Customization
+
+All styles live in `lib/client.js`.
+
+**Change the wallpaper** — replace the base64 in `var BG = "data:image/jpeg;base64,..."` with your own image:
+
+```bash
+base64 -i your-image.jpg | tr -d '\n'
+# append the output after "data:image/jpeg;base64,"
+```
+
+**Tune panel opacity** — edit the last number (0–1, higher = more solid) of these variables:
+
+| Variable | Controls |
+|---|---|
+| `--dsw-alias-bg-base` | Main-area mask |
+| `--dsw-specific-sidebar-fill` | Sidebar |
+| `--dsw-alias-button-elevated-fill` | New-session button |
+| `--dsw-specific-input-major` | Input / composer box |
+| `--dsw-alias-bg-layer-1/2/3` | Panels, dialogs, etc. |
+
+Restart `dsh web` to apply.
+
+### Files
+
+| File | Description |
+|---|---|
+| `package.json` | Plugin manifest declaring `dsh.client` |
+| `lib/index.js` | Host-side entry (no-op) |
+| `lib/client.js` | Client entry — injects background + styles |
+| `install.sh` | One-command installer |
+
+### Troubleshooting
+
+- **No change after refresh?** Hard-refresh (`Cmd + Shift + R`), check the YAML indentation in Step 2, and make sure the folder is named `dsh-theme-wallpaper`.
+- **"Cannot find package" on restart?** Confirm the plugin is at `~/.dsh/profiles/node_modules/dsh-theme-wallpaper/` with a `package.json` inside.
 
 ---
 
-## 自定义 / Customization
+<a id="chinese"></a>
 
-所有样式都在 `lib/client.js` 里。All styles live in `lib/client.js`.
+## 中文
 
-### 换背景图 / Change the wallpaper
+### 效果
 
-把 `var BG = "data:image/jpeg;base64,..."` 里的 base64 换成你自己的图：
-Replace the base64 in `var BG = "data:image/jpeg;base64,..."` with your own image:
+- 整页壁纸背景（居中、铺满、固定）
+- 半透明面板，壁纸透出来
+- 浅色 / 深色主题都适配
+- 纯客户端插件，不碰主机数据，安全可卸载
+
+### 前置条件
+
+- 已装好 DeepSeek Harness，并能用 `dsh web` 启动
+- 无需其他依赖（插件自包含，背景图已内嵌）
+
+### 安装
+
+**第 1 步 · 下载插件**（任选其一）：
+
+```bash
+git clone https://github.com/xiaoloveying/deepseek_harness_theme \
+  ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
+```
+
+或下载 ZIP（**Code → Download ZIP**）解压后，把文件夹复制到 `~/.dsh/profiles/node_modules/`，并**改名为 `dsh-theme-wallpaper`**。
+
+> 如果 Harness 用户目录不是 `~/.dsh`（设置了 `DSH_HOME`），请换成实际路径。
+
+**第 2 步 · 注册插件**。编辑 `~/.dsh/profiles/web/cordis.patch.yml`（用别的 profile 就改成对应名字）：
+
+```yaml
+- insert:
+    - id: theme-wallpaper
+      name: dsh-theme-wallpaper
+```
+
+如果文件已有内容，就在**末尾追加**上面这段（保持 YAML 缩进一致）。
+
+**第 3 步 · 重启**并强制刷新：
+
+```bash
+dsh web
+```
+
+然后按 `Cmd + Shift + R`（Windows / Linux 用 `Ctrl + Shift + R`）。
+
+### 一键安装
+
+```bash
+./install.sh           # 默认 profile 是 web
+./install.sh myprofile # 指定别的 profile
+```
+
+脚本会自动复制插件并写入 `cordis.patch.yml`，然后你只需重启 `dsh web`。
+
+### 卸载
+
+1. 删掉 `cordis.patch.yml` 里加的那段 `- insert: ...`。
+2. 删除插件目录：
+
+   ```bash
+   rm -rf ~/.dsh/profiles/node_modules/dsh-theme-wallpaper
+   ```
+
+3. 重启 `dsh web`。
+
+### 自定义
+
+所有样式都在 `lib/client.js`。
+
+**换背景图** —— 把 `var BG = "data:image/jpeg;base64,..."` 里的 base64 换成自己的图：
 
 ```bash
 base64 -i 你的图片.jpg | tr -d '\n'
 # 把输出拼到 "data:image/jpeg;base64," 后面
-# append the output after "data:image/jpeg;base64,"
 ```
 
-### 调整面板透明度 / Tune panel opacity
+**调面板透明度** —— 改下面这些变量的最后一个数字（0~1，越大越实）：
 
-在 CSS 里找到这些变量并改最后一个数字（0 ~ 1，越大越实）：
-Find these variables in the CSS and change the last number (0–1; higher = more solid):
-
-| 变量 / Variable | 作用 / What it controls |
+| 变量 | 作用 |
 |---|---|
-| `--dsw-alias-bg-base` | 主要区域遮罩 Main-area mask |
-| `--dsw-specific-sidebar-fill` | 侧边栏 Sidebar |
-| `--dsw-alias-button-elevated-fill` | 「新会话」按钮 New-session button |
-| `--dsw-specific-input-major` | 输入框 Input/composer box |
-| `--dsw-alias-bg-layer-1/2/3` | 卡片、弹窗等层级 Panels, dialogs, etc. |
+| `--dsw-alias-bg-base` | 主要区域遮罩 |
+| `--dsw-specific-sidebar-fill` | 侧边栏 |
+| `--dsw-alias-button-elevated-fill` | 「新会话」按钮 |
+| `--dsw-specific-input-major` | 输入框 |
+| `--dsw-alias-bg-layer-1/2/3` | 卡片、弹窗等层级 |
 
-改完重启 `dsh web` 生效。Restart `dsh web` to apply.
+改完重启 `dsh web` 生效。
 
----
+### 文件说明
 
-## 文件说明 / Files
-
-| 文件 / File | 说明 / Description |
+| 文件 | 说明 |
 |---|---|
-| `package.json` | 插件清单，声明 `dsh.client`（客户端插件）Plugin manifest declaring `dsh.client` |
-| `lib/index.js` | 主机侧入口（无副作用）Host-side entry (no-op) |
-| `lib/client.js` | 客户端入口，注入背景与样式 Client entry — injects background + styles |
-| `install.sh` | 一键安装脚本 One-command installer |
+| `package.json` | 插件清单，声明 `dsh.client` |
+| `lib/index.js` | 主机侧入口（无副作用） |
+| `lib/client.js` | 客户端入口，注入背景与样式 |
+| `install.sh` | 一键安装脚本 |
 
----
+### 常见问题
 
-## 常见问题 / Troubleshooting
-
-- **刷新后没变化？** 用强制刷新 `Cmd + Shift + R`，并确认第 2 步的 YAML 缩进正确、插件目录名是 `dsh-theme-wallpaper`。
-  **No change after refresh?** Hard-refresh (`Cmd + Shift + R`), check the YAML indentation in step 2, and make sure the folder is named `dsh-theme-wallpaper`.
-- **重启时报错找不到包？** 确认插件在 `~/.dsh/profiles/node_modules/dsh-theme-wallpaper/` 下，并且里面有 `package.json`。
-  **"Cannot find package" on restart?** Confirm the plugin is at `~/.dsh/profiles/node_modules/dsh-theme-wallpaper/` with a `package.json` inside.
+- **刷新没变化？** 强制刷新（`Cmd + Shift + R`），确认第 2 步 YAML 缩进正确、文件夹名是 `dsh-theme-wallpaper`。
+- **重启报「找不到包」？** 确认插件在 `~/.dsh/profiles/node_modules/dsh-theme-wallpaper/`，里面有 `package.json`。
 
 ---
 
